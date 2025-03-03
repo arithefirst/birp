@@ -10,3 +10,5 @@
 # Binary files should be left untouched
 *.jar           binary
 
+# .gradle files are written in Groovy
+*.gradle linguist-language=Groovy
