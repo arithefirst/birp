@@ -96,6 +96,5 @@ public class BfInterpreter {
         System.exit(1);
       }
     }
-    System.out.println(memory);
   }
 }
