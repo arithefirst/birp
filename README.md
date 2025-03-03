@@ -56,7 +56,5 @@ This will create a JAR file in the libs directory that can be executed to interp
 
 ## Project Structure
 
-- Birp.java: Main entry point
-- BfInterpreter.java: Interpreter implementation
-
-Similar code found with 2 license types
+- `src/main/java/com/arithefirst/Birp.java`: Main entry point
+- `src/main/java/com/arithefirst/BfInterpreter.java`: Interpreter implementation
