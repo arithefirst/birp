@@ -13,8 +13,6 @@ public class Birp {
 
         String source = readFile(args[0]);
         for (int i = 1; i != source.length() + 1; i++) {
-            // Print start value the pointer (for debugging)
-            System.out.print(String.format("Pointer: %d", pointer));
             try {
                 switch (source.charAt(i - 1)) {
                     case '>':
@@ -48,6 +46,9 @@ public class Birp {
                             feed.set(pointer, feed.get(pointer) - 1);
                         }
                         break;
+                    case '.':
+                        char c = (char) feed.get(pointer).intValue();
+                        System.out.print(c);
                     default:
                         break;
                 }
@@ -55,8 +56,6 @@ public class Birp {
                 System.out.println(e.getMessage());
                 System.exit(1);
             }
-            // Print the end value of the pointer (for debugging)
-            System.out.println(String.format(" %d (%d)", pointer, feed.get(pointer)));
         }
         System.out.println(feed);
     }
