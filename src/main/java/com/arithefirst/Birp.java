@@ -30,6 +30,12 @@ public class Birp {
                             pointer -= 1;
                         }
                         break;
+                    case ',':
+                        // Read a value from STDIN and store it at the pointer
+                        System.out.print("Reading value from STDIN: ");
+                        Scanner reader = new Scanner(System.in);
+                        feed.set(pointer, reader.nextInt());
+                        break;
                     case '+':
                         // Increment value at pointer, reset to 0 if value is 255
                         if (feed.get(pointer) == 255) {
