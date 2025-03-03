@@ -16,6 +16,34 @@ public class Birp {
     for (int i = 0; i < source.length(); i++) {
       try {
         switch (source.charAt(i)) {
+          case '[':
+            // If current cell is 0, skip to matching ]
+            if (feed.get(pointer) == 0) {
+              int depth = 1;
+              while (depth > 0) {
+                i++;
+                if (i >= source.length()) {
+                  throw new RuntimeException("Unmatched [");
+                }
+                if (source.charAt(i) == '[') depth++;
+                if (source.charAt(i) == ']') depth--;
+              }
+            }
+            break;
+          case ']':
+            // If current cell is not 0, go back to matching [
+            if (feed.get(pointer) != 0) {
+              int depth = 1;
+              while (depth > 0) {
+                i--;
+                if (i < 0) {
+                  throw new RuntimeException("Unmatched ]");
+                }
+                if (source.charAt(i) == ']') depth++;
+                if (source.charAt(i) == '[') depth--;
+              }
+            }
+            break;
           case '>':
             // Increment pointer, add 0 to feed if pointer is out of bounds
             pointer += 1;
