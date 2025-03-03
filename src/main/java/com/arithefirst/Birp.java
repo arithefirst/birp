@@ -61,7 +61,7 @@ public class Birp {
         System.out.println(feed);
     }
 
-    public static String readFile(String path) {
+    private static String readFile(String path) {
         String data = "";
         try {
             File bfile = new File(path);
